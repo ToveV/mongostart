@@ -1,11 +1,11 @@
-const express = require('express');
-const {getAll} = require('../controllers/Quote.js');
-
-
+import express from 'express';
 const router = express.Router();
 
-router.get('/', getAll);
+import getAll from '../controllers/Quote.js';
 
-module.exports = {
-    routes: router
-}
+router.route('/')
+    .get(function(req, res) {
+        res.render('index', getAll);
+    })
+
+export default router;
